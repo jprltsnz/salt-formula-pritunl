@@ -17,6 +17,14 @@ Single pritunl service
     pritunl:
       server:
         enabled: true
+      cli:
+        sso: saml_okta
+        app_id: "<Okta app Id>"
+        saml_url: "<Okta app url>"
+        saml_issuer_url: "<Okta saml issuer url>"
+        okta_token: "<Okta Token>"
+        okta_mode: "push"
+        saml_cert: "<Okta SAML Cert>" 
 
 Read more
 =========
