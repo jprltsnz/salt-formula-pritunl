@@ -1,11 +1,13 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
 {%- from "pritunl/map.jinja" import server with context %}
-{%- if server.enabled %}
 
 pritunl_repository:
   pkgrepo.managed:
     - humanname: Pritunl
-    - name: deb http://repo.pritunl.com/stable/apt xenial main
-    - dist: xenial
+    - name: deb http://repo.pritunl.com/stable/apt {{ grains['oscodename'] }} main
+    - dist: {{ grains['oscodename'] }}
     - file: /etc/apt/sources.list.d/pritunl.list
     - gpgcheck: 1
     - keyid: 7568D9BB55FF9E5287D586017AE645C0CF8E292A
