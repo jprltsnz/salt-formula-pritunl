@@ -1,0 +1,9 @@
+pritunl:
+  server:
+    bind:
+      address: '127.0.0.1'
+      port: '443'
+    log:
+      path: '/var/log/pritunl.log'
+    mongodb:
+      uri: 'mongodb://localhost:27017/pritunl'
