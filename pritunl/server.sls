@@ -34,3 +34,17 @@ pritunl_service:
   - name: {{ server.service }}
   - watch:
     - file: /etc/pritunl.conf
+
+{% if not server.redirect %}
+pritunl set no redirect port:
+  cmd.run:
+    name: pritunl app.server_port {{ server.bind.port }}
+    onchanges:
+      - file: /etc/pritunl.conf
+
+pritunl disable redirection:
+  cmd.run:
+    name: pritunl set app.redirect_server false
+    onchanges:
+      - file: /etc/pritunl.conf
+{% endif %}
